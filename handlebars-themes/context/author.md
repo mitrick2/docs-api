@@ -86,7 +86,7 @@ The `{{pagination}}` helper is the best way to output pagination. This is fully 
   <header>
   	{{#if profile_image}}
     	<img src="{{profile_image}})" alt="{{name}}'s Picture" />
-    {/if}}
+    {{/if}}
   </header>
 
   <section class="author-profile">

@@ -42,7 +42,7 @@ Here are some useful options when using the `ghost install` command:
 
 ```bash
 # Install a specific version (1.0.0 or higher)
-ghost install [version]</strong></pre>
+ghost install [version]
 
 # Install locally for development
 ghost install local
