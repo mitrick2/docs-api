@@ -13,7 +13,7 @@ iat = Time.now.to_i
 header = {alg: 'HS256', typ: 'JWT', kid: id}
 payload = {
     iat: iat,
-    exp: iat + 5 * 3600,
+    exp: iat + 5 * 60,
     aud: '/v2/admin/'
 }
 
