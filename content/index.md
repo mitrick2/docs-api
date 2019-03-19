@@ -426,7 +426,7 @@ E.g. for posts `&fields=title,url` would return:
 
 (Posts and Pages only)
 
-By default, only `html` is returned, however each post and page in Ghost has 3 available formats: `html`, `plaintext` and `mobiledoc`.
+By default, only `html` is returned, however each post and page in Ghost has 2 available formats: `html` and `plaintext`.
 
 - `&formats=html,plaintext` will additionally return the plaintext format.
 
