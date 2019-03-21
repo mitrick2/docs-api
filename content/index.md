@@ -158,7 +158,7 @@ Browse endpoints allow you to fetch lists of resources, whereas Read endpoints a
 
 The API will always return valid JSON in the same structure:
 
-```
+```json
 {
     "resource_type": [{
         ...
@@ -167,9 +167,8 @@ The API will always return valid JSON in the same structure:
 }
 ```
 
-The meta object contains [pagination](#pagination) information for browse requests.
-
-The singular exception is [settings](#settings), which only ever returns a single object.
+- `resource_type`: will always match the resource name in the URL. All resources are returned wrapped in an array, with the exception of `/site/` and `/settings/`. 
+- `meta`: contains [pagination](/api/content/#pagination) information for browse requests.
 
 
 ### Posts
