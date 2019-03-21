@@ -439,7 +439,7 @@ To create a new post, the only required field is `title`. All other fields can e
 
 ```json:title=POST /admin/posts/
 {
-    "post": [{
+    "posts": [{
         "title": "My test post",
         "mobiledoc": "{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"My post content. Work in progress...\"]]]]}",
         "status": "published"
@@ -458,7 +458,7 @@ To use HTML as the source for your content instead of mobiledoc, use the `source
 
 ```json:title=POST /admin/posts/?source%3Dhtml
 {
-    "post": [{
+    "posts": [{
         "title": "My test post",
         "html": "<p>My post content. Work in progress...</p>",
         "status": "published"
@@ -474,7 +474,7 @@ Short form uses a single string to identify a tag or author resource. Tags are i
 
 ```json:title=POST /admin/posts/
 {
-    "post": [{
+    "posts": [{
         "title": "My test post",
         "tags": ["Getting Started", "Tag Example"],
         "authors" ["example@ghost.org", "test@ghost.org"],
@@ -488,7 +488,7 @@ Long form requires an object with at least one identifying key-value pair:
 
 ```json:title=POST /admin/posts/
 {
-    "post": [{
+    "posts": [{
         "title": "My test post",
         "tags": [{"name": "my tag", "description": "a very useful tag"}, {"name": "#hidden}],
         "authors": [{"id": "5c739b7c8a59a6c8ddc164a1"}, {"id": "5c739b7c8a59a6c8ddc162c5"}, {"id": "5c739b7c8a59a6c8ddc167d9"}]        
