@@ -52,17 +52,15 @@ The API uses a consistent JSON structure for all requests and responses:
 }
 ```
 
-The `resource_type` will always match the resource name in the URL. All resources are returned wrapped in an array, with the exception of specific singular resources returned from `/site/` or `/settings/`. 
+- `resource_type`: will always match the resource name in the URL. All resources are returned wrapped in an array, with the exception of `/site/` and `/settings/`. 
+- `meta`: contains [pagination](/api/content/#pagination) information for browse requests.
 
-The meta object contains [pagination](/api/content/#pagination) information for browse requests.
+#### Composing requests
 
-When composing JSON payloads to send to the API, you must always use this same format.
+When composing JSON payloads to send to the API as POST or PUT requests, you must always use this same format, unless the documentation for an endpoint says otherwise.
 
-### Parameters
+Requests with JSON payloads require the `Content-Type: application/json` header. Most request libraries have JSON-specific handling that will do this for you.
 
-Query parameters provide fine-grained control over responses. All endpoints accept `include` and `fields`. Browse endpoints additionally accept `filter`, `limit`, `page` and `order`. Some endpoints have their own specific parameters.
-
-The values provided as query parameters MUST be url encoded when used directly. The [client libraries](/api/javascript/) will handle this for you.
 
 ### Pagination
 
@@ -80,6 +78,12 @@ All browse endpoints are paginated, returning 15 records by default. You can use
     }
   }
 ```
+
+### Parameters
+
+Query parameters provide fine-grained control over responses. All endpoints accept `include` and `fields`. Browse endpoints additionally accept `filter`, `limit`, `page` and `order`. Some endpoints have their own specific parameters.
+
+The values provided as query parameters MUST be url encoded when used directly. The [client libraries](/api/javascript/) will handle this for you.
 
 ### Filtering
 
