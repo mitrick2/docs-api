@@ -210,19 +210,23 @@ Authenticating as a user requires an application to collect a user's email and p
 The session and authentication endpoints have custom payloads, different to the standard JSON resource format.
 
 ```javascript
-POST /sessions/
+POST /admin/session/
 ```
+
+##### Request
 
 To create a new session, send a username and password to the sessions endpoint, in this format:
 
-```json:title=POST /admin/sessions/
+```json:title=POST /admin/session/
 {
     "username": "{email address}",
     "password": "{password}"
 }
 ```
 
-**Response:**
+This request should also have an Origin header. See [CSRF protection](#csrf-protection) for details.
+
+##### Response
 
 `201 Created`: A successful session creation will return HTTP  `201` response with an empty body and a  `set-cookie` header, in the following format:
 
@@ -230,11 +234,34 @@ To create a new session, send a username and password to the sessions endpoint, 
 set-cookie: ghost-admin-api-session={session token}; Path=/ghost; Expires=Mon, 26 Aug 2019 19:14:07 GMT; HttpOnly; SameSite=Lax
 ```
 
-This cookie should then be provided with every API request:
+#### Making authenticated API requests
+
+The provided session cookie should be provided with every subsequent API request:
 
 - When making the request from a browser using the `fetch` api,  pass `credentials: 'include'` to ensure cookies are sent. 
 - When using XHR you should set the `withCredentials` property of the xhr to `true`
 - When using cURL you can use the `--cookie` and `--cookie-jar` options to store and send cookies from a text file.
+
+##### CSRF Protection
+
+Session-based requests must also include either an Origin (preferred) or a Referer header. The value of these headers is checked against the original session creation requests, in order to prevent Cross-Site Request Forgery (CSRF) in a browser environment. 
+In a browser environment, these headers are handled automatically. For server-side or native apps, the Origin header should be sent with an identifying URL as the value. 
+
+#### Session-based Examples
+
+```bash:title=cURL
+# Create a session, and store the cookie in ghost-cookie.txt
+curl -c ghost-cookie.txt -d username=me@site.com -d password=secretpassword \
+   -H "Origin: https://myappsite.com" \
+   https://demo.ghost.io/ghost/api/v2/admin/session/
+
+# Use the session cookie to create a post
+curl -b ghost-cookie.txt \
+   -d '{"posts": [{"title": "Hello World"}]}' \
+   -H "Content-Type: application/json" \
+   -H "Origin: https://myappsite.com" \
+   https://demo.ghost.io/ghost/api/v2/admin/posts/   
+```
 
 
 ## Endpoints
