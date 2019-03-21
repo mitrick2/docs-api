@@ -81,67 +81,67 @@ The Content API provides access to Posts, Pages, Tags, Authors and Settings. All
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/posts/</td>
+  <td width="300"><a href="#posts">/posts/</a></td>
   <td>Browse posts</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/posts/{id}/</td>
+  <td width="300"><a href="#posts">/posts/{id}/</td>
   <td>Read a post by ID</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/posts/slug/{slug}/</td>
+  <td width="300"><a href="#posts">/posts/slug/{slug}/</td>
   <td>Read a post by slug</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/authors/</td>
+  <td width="300"><a href="#authors">/authors/</td>
   <td>Browse authors</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/authors/{id}/</td>
+  <td width="300"><a href="#authors">/authors/{id}/</td>
   <td>Read an author by ID</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/authors/slug/{slug}/</td>
+  <td width="300"><a href="#authors">/authors/slug/{slug}/</td>
   <td>Read a author by slug</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/tags/</td>
+  <td width="300"><a href="#tags">/tags/</td>
   <td>Browse tags</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/tags/{id}/</td>
+  <td width="300"><a href="#tags">/tags/{id}/</td>
   <td>Read a tag by ID</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/tags/slug/{slug}/</td>
+  <td width="300"><a href="#tags">/tags/slug/{slug}/</td>
   <td>Read a tag by slug</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/pages/</td>
+  <td width="300"><a href="#pages">/pages/</td>
   <td>Browse pages</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/pages/{id}/</td>
+  <td width="300"><a href="#pages">/pages/{id}/</td>
   <td>Read a page by ID</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/pages/slug/{slug}/</td>
+  <td width="300"><a href="#pages">/pages/slug/{slug}/</td>
   <td>Read a page by slug</td>
 </tr>
 <tr>
   <td>GET</td>
-  <td width="300">/settings/</td>
+  <td width="300"><a href="#settings">/settings/</td>
   <td>Browse settings</td>
 </tr>
 </tbody>
@@ -172,6 +172,16 @@ The API will always return valid JSON in the same structure:
 
 
 ### Posts
+
+Posts are the [primary resource](/concepts/posts/) in a Ghost site. Using the posts endpoint it is possible to get lists of posts filtered by various criteria.
+
+```JavaScript
+GET /content/posts/
+GET /content/posts/{id}/
+GET /content/posts/slug/{slug}/
+```
+
+By default, posts are returned in reverse chronological order by published date when fetching more than one. 
 
 The most common gotcha when fetching posts from the Content API is not using the [include](#include) parameter to request related data such as tags and authors.
 By default, the response for a post will not include these:
@@ -307,9 +317,29 @@ Returns:
 
 ### Pages
 
+Pages are static resources that are not included in channels or collections on the Ghost front-end. 
+The API will only return pages that were created as [resources](/concepts/pages/) and will not contain routes created with [dynamic routing](/api/handlebars-themes/routing/).
+
+
+```JavaScript
+GET /content/pages/
+GET /content/pages/{id}/
+GET /content/pages/slug/{slug}/
+```
+
+
 Pages are structured identically to posts. The response object will look the same, only the resource key will be `pages`.
+By default, pages are ordered by title when fetching more than one. 
 
 ### Tags
+
+Tags are the [primary taxonomy](/concepts/tags/) within a Ghost site. 
+
+```JavaScript
+GET /content/tags/
+GET /content/tags/{id}/
+GET /content/tags/slug/{slug}/
+```
 
 By default, internal tags are always included, use `filter=visibility:"public"` to limit the response directly or use the [tags helper](/api/helpers/#tags) to handle filtering and outputting the response.
 
@@ -329,7 +359,17 @@ Tags that are not associated with a post are not returned. You can supply `inclu
 }]}
 ```
 
+By default, tags are ordered by name when fetching more than one.
+
 ### Authors
+
+Authors are a subset of [users](/concepts/users/) who have published posts asscoiated with them.
+
+```JavaScript
+GET /content/authors/
+GET /content/authors/{id}/
+GET /content/authors/slug/{slug}/
+```
 
 Authors that are not associated with a post are not returned. You can supply `include=count.posts` to retrieve the number of posts associated with an author.
 
@@ -353,6 +393,12 @@ Authors that are not associated with a post are not returned. You can supply `in
 
 ### Settings
 
+Settings contains the global settings for a site.
+
+```JavaScript
+GET /content/settings/
+```
+
 The settings endpoint is a special case. You will receive a single object, rather than an array. This endpoint doesn't accept any query parameters.
 
 ```json
@@ -375,9 +421,7 @@ The settings endpoint is a special case. You will receive a single object, rathe
      { "label": "Help", "url": "https://help.ghost.org" }
   ]
 }};
-
 ```
-
 
 ---
 
