@@ -33,5 +33,8 @@ signature=$(printf '%s' "${header_payload}" | openssl dgst -binary -sha256 -mac 
 # Concat payload and signature into a valid JWT token
 TOKEN="${header_payload}.${signature}"
 
-# Make an authenticated request
-curl -H "Authorization: Ghost $TOKEN" "http://localhost:2368/ghost/api/v2/admin/posts/?limit=1"
+# Make an authenticated request to create a post
+curl -H "Authorization: Ghost $TOKEN" \
+-H "Content-Type: application/json" \
+-d '{"posts":[{"title":"Hello world"}]}' \
+"http://localhost:2368/ghost/api/v2/admin/posts/"

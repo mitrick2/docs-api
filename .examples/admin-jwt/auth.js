@@ -1,3 +1,4 @@
+// Create a token without the client
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
 
@@ -15,9 +16,10 @@ const token = jwt.sign({}, Buffer.from(secret, 'hex'), {
     audience: `/v2/admin/`
 });
 
-// Make an authenticated request
-const url = 'http://localhost:2368/ghost/api/v2/admin/posts/?limit=1';
+// Make an authenticated request to create a post
+const url = 'http://localhost:2368/ghost/api/v2/admin/posts/';
 const headers = { Authorization: `Ghost ${token}` };
-axios.get(url, { headers })
+const payload = { posts: [{ title: 'Hello World' }] };
+axios.post(url, payload, { headers })
     .then(response => console.log(response))
     .catch(error => console.error(error));

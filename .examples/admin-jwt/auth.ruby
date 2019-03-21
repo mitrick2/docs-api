@@ -20,7 +20,8 @@ payload = {
 # Create the token (including decoding secret)
 token = JWT.encode payload, [secret].pack('H*'), 'HS256', header
 
-# Make an authenticated request
-url = 'http://localhost:2368/ghost/api/v2/admin/posts/?limit=1'
+# Make an authenticated request to create a post
+url = 'http://localhost:2368/ghost/api/v2/admin/posts/'
 headers = {Authorization: "Ghost #{token}"}
-puts HTTParty.get(url, headers: headers)
+body = {posts: [{title: 'Hello World'}]}
+puts HTTParty.post(url, body: body, headers: headers)

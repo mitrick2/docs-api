@@ -10,6 +10,6 @@ const api = new GhostAdminAPI({
 });
 
 // Make an authenticated request
-api.posts.get({limit: 1})
+api.posts.add({title: 'Hello world'})
     .then(response => console.log(response))
     .catch(error => console.error(error));
