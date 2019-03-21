@@ -355,7 +355,7 @@ DELETE /admin/posts/{id}/
 
 Whenever you fetch posts, or create or edit a post, the API will respond with an array of one or more post objects. These objects will include all related tags, authors, and author roles.
 
-By default, the API expects and returns content in the mobiledoc format only. To include html in the response use the `formats` parameter:
+By default, the API expects and returns content in the **mobiledoc** format only. To include **html** in the response use the `formats` parameter:
 
 ```json:title=GET /admin/posts/?formats%3Dhtml,mobiledoc
 {
@@ -487,9 +487,16 @@ By default, the API expects and returns content in the mobiledoc format only. To
 When retrieving posts from the Admin API, it is possible to use the `include`, `formats`, `filter`, `limit`, `page` and `order` parameters as documented for the [Content API](/api/content/#parameters).
 Some defaults are different between the two APIs, however the behaviour and availabililty of the parameters remains the same.
 
+
 ### Creating a Post
 
-To create a new post, the only required field is `title`. All other fields can either be empty, or have a default. A post must always have at least one author. This will default to the staff user with the owner role. Below is a minimal example for creating a published post with content:
+```JavaScript
+POST /admin/posts/
+```
+
+Required fields: `title`
+
+It is possible to create both draft and publihsed posts with the add posts endpoint. All fields except `title` can either be empty, or have a default that is applied automatically. A post must always have at least one author, and this will default to the staff user with the owner role. Below is a minimal example for creating a published post with content:
 
 
 ```json:title=POST /admin/posts/
@@ -532,7 +539,7 @@ Short form uses a single string to identify a tag or author resource. Tags are i
     "posts": [{
         "title": "My test post",
         "tags": ["Getting Started", "Tag Example"],
-        "authors" ["example@ghost.org", "test@ghost.org"],
+        "authors": ["example@ghost.org", "test@ghost.org"],
         "mobiledoc": "{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"My post content. Work in progress...\"]]]]}",
         "status": "published"
     }]
@@ -545,13 +552,46 @@ Long form requires an object with at least one identifying key-value pair:
 {
     "posts": [{
         "title": "My test post",
-        "tags": [{"name": "my tag", "description": "a very useful tag"}, {"name": "#hidden}],
+        "tags": [{"name": "my tag", "description": "a very useful tag"}, {"name": "#hidden"}],
         "authors": [{"id": "5c739b7c8a59a6c8ddc164a1"}, {"id": "5c739b7c8a59a6c8ddc162c5"}, {"id": "5c739b7c8a59a6c8ddc167d9"}]        
     }]
 }
 ```
 
 Tags that cannot be matched are automatically created. If no author can be matched, Ghost will fallback to using the staff user with the owner role.
+
+### Updating a Post
+
+```JavaScript
+PUT /admin/posts/{id}/
+```
+
+Required fields: `updated_at`
+
+All writable fields of a post can be updated via the edit endpoint. The `updated_at` field is required as it is used to handle collision detection, and ensure you're not overwriting more recent updates. It is recommended to perform a GET request to fetch the latest data before updating a post. Below is a minimal example for updating the title of a post:
+
+```json:title=PUT /admin/posts/5b7ada404f87d200b5b1f9c8/
+{
+    "post": [{
+        "title": "My new title",
+        "updated_at": "2019-03-05T20:52:37.000Z"
+    }]
+}
+```
+
+#### Tags and Authors
+
+Tag and author relations will be replaced, not merged. Again, the recommendation is to always fetch the latest version of a post, make any amends to this such as adding another tag to the tags array, and then send the amended data via the edit endpoint.
+
+
+### Deleting a Posts
+
+```JavaScript
+DELETE /admin/posts/{id}/
+```
+
+Delete requests have no payload in the request or response. Successful deletes will return an empty 200 response.
+
 
 ## Pages
 
