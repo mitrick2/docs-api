@@ -174,11 +174,19 @@ These examples show how to generate a valid JWT in various languages & JWT libra
 
 <div class="code-tabs">
     <input name="tabs" type="radio" id="tab-bash" checked="checked"/>
-    <label for="tab-bash">Bash</label>
+    <label for="tab-bash">Bash (cURL)</label>
     <div class="panel">
 
 
 `embed:admin-jwt/auth.sh`
+
+</div>
+ <input name="tabs" type="radio" id="tab-js-client"/>
+    <label for="tab-js-client">JavaScript (Client)</label>
+    <div class="panel">
+
+
+`embed:admin-jwt/auth-client.js`
 
 </div>
  <input name="tabs" type="radio" id="tab-js"/>

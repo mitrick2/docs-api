@@ -16,8 +16,8 @@ Admin API keys should remain secret, and therefore this promise-based JavaScript
 
 ```javascript
 const api = new GhostAdminAPI({
-  url: 'https://demo.ghost.io',
-  key: '{AdminAPIKey}',
+  url: 'http://localhost:2368',
+  key: 'YOUR_ADMIN_API_KEY',
   version: 'v2'
 });
 
@@ -81,7 +81,7 @@ const path = require('path');
 const api = new GhostAdminAPI({
     url: 'http://localhost:2368',
     version: 'v2',
-    key: '{AdminAPIKey}'
+    key: 'YOUR_ADMIN_API_KEY'
 });
 
 // Utility function to find and upload any images in an HTML string
