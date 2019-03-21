@@ -225,7 +225,7 @@ The session and authentication endpoints have custom payloads, different to the 
 POST /admin/session/
 ```
 
-##### Request
+###### Request
 
 To create a new session, send a username and password to the sessions endpoint, in this format:
 
@@ -238,7 +238,7 @@ To create a new session, send a username and password to the sessions endpoint, 
 
 This request should also have an Origin header. See [CSRF protection](#csrf-protection) for details.
 
-##### Response
+###### Response
 
 `201 Created`: A successful session creation will return HTTP  `201` response with an empty body and a  `set-cookie` header, in the following format:
 
@@ -254,7 +254,7 @@ The provided session cookie should be provided with every subsequent API request
 - When using XHR you should set the `withCredentials` property of the xhr to `true`
 - When using cURL you can use the `--cookie` and `--cookie-jar` options to store and send cookies from a text file.
 
-##### CSRF Protection
+###### CSRF Protection
 
 Session-based requests must also include either an Origin (preferred) or a Referer header. The value of these headers is checked against the original session creation requests, in order to prevent Cross-Site Request Forgery (CSRF) in a browser environment. 
 In a browser environment, these headers are handled automatically. For server-side or native apps, the Origin header should be sent with an identifying URL as the value. 
