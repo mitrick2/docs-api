@@ -87,15 +87,33 @@ See the [Content API](/api/content/#pagination).
 
 ## Authentication
 
-There are two methods for authenticating with the Admin API: token authentication and user authentication.
+There are two methods for authenticating with the Admin API: [token authentication](#token-authentication) and [user authentication](#user-authentication). Most applications integrating with the Ghost Admin API should use token authentication. 
 
-Most applications integrating with the Ghost Admin API should use token authentication. User authentication is intended for fully-fledged clients where different users login and manage various resources as themselves. Token authentication is intended for integrations that handle common workflows, such as publishing new content, or sharing content to other platforms.
 
 The JavaScript Admin API Client supports token authentication.
 
-### Token Authentication (Integrations)
+### Choosing an authentication method
 
-Token authentication is a simple, secure authentication mechanism using JSON Web Tokens (JWTs). Each integration is issued with an admin API key, which is used to generate a JWT token and then provided to the API via the standard HTTP Authorization header.
+**Token authentication** is intended for integrations that handle common workflows, such as publishing new content, or sharing content to other platforms. 
+
+Using tokens, you authenticate as an integration. Each integration can have associated API keys &amp; webhooks and are able to perform API requests independently of users. Admin API keys are used to generate short-lived single-use JSON Web Tokens (JWTs), which are then used to authenticate a request. The API Key is secret, and therefore this authentication method is only suitable for secure server side environments.
+
+**User authentication** is intended for fully-fledged clients where different users login and manage various resources as themselves. 
+
+Using an email address and password, you authenticate as a specific user, with their role-based permissions. Via the session API, credentials are swapped for a cookie-based session, which is then used to authenticate further API requests. Provided that passwords are entered securely, user-authentication is safe for use in the browser.
+
+
+### Permisisons
+
+Integrations have a restricted set of fixed permissions allowing access to certain endpoints e.g. `GET /users/` or `POST /posts/`. The full set of endpoints that integrations can access are those listed as [endpoints](#endpoints) on this page.
+
+User permissions are dependent entirely on their role. You can find more details in the [team management guide](/faq/managing-your-team/). Authenticating as a user with the Owner or Admin role will give access to the full set of API endpoints. Many endpoints can be discovered by inspecting the requests made by Ghost Admin, the [endpoints](#endpoints) listed on this page are those stable enough to document. 
+ 
+
+
+### Token Authentication
+
+Token authentication is a simple, secure authentication mechanism using JSON Web Tokens (JWTs) to authenticate as an integration. Each integration is issued with an admin API key, which is used to generate a JWT token and then provided to the API via the standard HTTP Authorization header.
 
 The Admin API key must be kept private, therefore token authentication is not suitable for browsers or other insecure environments, unlike the Content API key.
 
@@ -217,8 +235,6 @@ This cookie should then be provided with every API request:
 - When making the request from a browser using the `fetch` api,  pass `credentials: 'include'` to ensure cookies are sent. 
 - When using XHR you should set the `withCredentials` property of the xhr to `true`
 - When using cURL you can use the `--cookie` and `--cookie-jar` options to store and send cookies from a text file.
-
-Authenticating as a user with the Owner or Admin role will give access to the full set of API endpoints. Many endpoints can be discovered by inspecting the requests made by Ghost Admin, but all undocumented endpoints should be considered unstable. 
 
 
 ## Endpoints
