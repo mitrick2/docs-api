@@ -107,7 +107,7 @@ Using tokens, you authenticate as an integration. Each integration can have asso
 Using an email address and password, you authenticate as a specific user, with their role-based permissions. Via the session API, credentials are swapped for a cookie-based session, which is then used to authenticate further API requests. Provided that passwords are entered securely, user-authentication is safe for use in the browser.
 
 
-### Permisisons
+### Permissions
 
 Integrations have a restricted set of fixed permissions allowing access to certain endpoints e.g. `GET /users/` or `POST /posts/`. The full set of endpoints that integrations can access are those listed as [endpoints](#endpoints) on this page.
 
@@ -164,7 +164,7 @@ JSON Web Tokens are made up of a header, a payload and a secret. The values need
 }
 ```
 
-The libraries on https://jtw.io all work slighly differently, but all of them allow you to specify the above required values, including setting the signing algorith to the required HS-256. Where possible, the API will provide specific error messages when required values are missing or incorrect.
+The libraries on https://jtw.io all work slightly differently, but all of them allow you to specify the above required values, including setting the signing algorithm to the required HS-256. Where possible, the API will provide specific error messages when required values are missing or incorrect.
 
 Regardless of language, you'll need to: 
 
@@ -485,7 +485,7 @@ By default, the API expects and returns content in the **mobiledoc** format only
 #### Parameters
 
 When retrieving posts from the Admin API, it is possible to use the `include`, `formats`, `filter`, `limit`, `page` and `order` parameters as documented for the [Content API](/api/content/#parameters).
-Some defaults are different between the two APIs, however the behaviour and availabililty of the parameters remains the same.
+Some defaults are different between the two APIs, however the behaviour and availability of the parameters remains the same.
 
 
 ### Creating a Post
@@ -496,7 +496,7 @@ POST /admin/posts/
 
 Required fields: `title`
 
-It is possible to create both draft and publihsed posts with the add posts endpoint. All fields except `title` can either be empty, or have a default that is applied automatically. A post must always have at least one author, and this will default to the staff user with the owner role. Below is a minimal example for creating a published post with content:
+It is possible to create both draft and published posts with the add posts endpoint. All fields except `title` can either be empty, or have a default that is applied automatically. A post must always have at least one author, and this will default to the staff user with the owner role. Below is a minimal example for creating a published post with content:
 
 
 ```json:title=POST /admin/posts/
