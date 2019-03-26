@@ -32,7 +32,7 @@ All Admin API requests start with this base URL.
 
 #### Admin Domain
 
-Your admin domain can be different to your main domain, and may include a subdirectory. Using the correct domain and protocol are critical to getting consistent behaviour, particularly when dealing with CORS in the browser. All Ghost(Pro) blogs have a `*.ghost.io domain` as their admin domain and require https.
+Your admin domain can be different to your main domain, and may include a subdirectory. Using the correct domain and protocol are critical to getting consistent behaviour, particularly when dealing with CORS in the browser. All Ghost(Pro) blogs have a `*.ghost.io` domain as their admin domain and require https.
 
 #### Version
 
@@ -87,7 +87,7 @@ The values provided as query parameters MUST be url encoded when used directly. 
 
 ### Filtering
 
-See the [Content API](/api/content/#pagination).
+See the [Content API](/api/content/#filter).
 
 ## Authentication
 
@@ -164,7 +164,7 @@ JSON Web Tokens are made up of a header, a payload and a secret. The values need
 }
 ```
 
-The libraries on https://jtw.io all work slightly differently, but all of them allow you to specify the above required values, including setting the signing algorithm to the required HS-256. Where possible, the API will provide specific error messages when required values are missing or incorrect.
+The libraries on https://jwt.io all work slightly differently, but all of them allow you to specify the above required values, including setting the signing algorithm to the required HS-256. Where possible, the API will provide specific error messages when required values are missing or incorrect.
 
 Regardless of language, you'll need to: 
 
