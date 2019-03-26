@@ -182,7 +182,7 @@ These examples show how to generate a valid JWT in various languages & JWT libra
     <div class="panel">
 
 
-`embed:admin-jwt/auth.sh`
+`embed:api/v2/admin/jwt/auth.sh`
 
 </div>
  <input name="tabs" type="radio" id="tab-js-client"/>
@@ -190,7 +190,7 @@ These examples show how to generate a valid JWT in various languages & JWT libra
     <div class="panel">
 
 
-`embed:admin-jwt/auth-client.js`
+`embed:api/v2/admin/jwt/auth-client.js`
 
 </div>
  <input name="tabs" type="radio" id="tab-js"/>
@@ -198,7 +198,7 @@ These examples show how to generate a valid JWT in various languages & JWT libra
     <div class="panel">
 
 
-`embed:admin-jwt/auth.js`
+`embed:api/v2/admin/jwt/auth.js`
 
 </div>
     <input name="tabs" type="radio" id="tab-ruby"/>
@@ -206,7 +206,7 @@ These examples show how to generate a valid JWT in various languages & JWT libra
     <div class="panel">
     
 
-`embed:admin-jwt/auth.ruby`    
+`embed:api/v2/admin/jwt/auth.rb`    
     
 </div>
 </div>
