@@ -16,7 +16,7 @@ sidebar: "handlebars"
 
 Template routes allow you to map individual URLs to specific template files within a Ghost theme. For example: make `/custom/` load `custom.hbs`
 
-Using template routes is very minimal. There's no default data associated with them, so there isn't any content automatically loaded in from Ghost like there is with posts and pages. Instead, you can write all the custom code you like into a specific file, and then have that file load on the route of your choice. 
+Using template routes is very minimal. There's no default data associated with them, so there isn't any content automatically loaded in from Ghost like there is with posts and pages. Instead, you can write all the custom code you like into a specific file, and then have that file load on the route of your choice.
 
 Custom routes are handy for creating static pages outside of Ghost Admin, when you don't want them to be editable, they use lots of custom code, or you need to create a specific custom URL which more than a basic slug.
 
@@ -51,14 +51,14 @@ Now `site.com/about/team/` is a dedicated URL for a static `team.hbs` template w
 
 ## Loading data
 
-The downside of using an `/about/team` route to point at a static `team.hbs` template is that it's... well: static. 
+The downside of using an `/about/team` route to point at a static `team.hbs` template is that it's... well: static.
 
 Unlike the **Features** the team page needs to be updated fairly regularly with a list of team members; so it would be inconvenient to have to do that in code each time. What we really want is to keep the custom route, but have the page still use data stored in Ghost. This is where the `data` property comes in.
 
 ```yaml
 routes:
   /features/: features
-  /about/team/: 
+  /about/team/:
     template: team
     data: page.team
 ```
@@ -79,12 +79,12 @@ If you create a custom template file with a [{{#get}}](/api/handlebars-themes/he
 routes:
   /podcast/rss/:
     template: podcast-feed
-    content_type: rss
+    content_type: text/xml
 ```
 
-Generally routes render HTML, but you can override that by specifying a `content_type` property with a custom mime-type. 
+Generally routes render HTML, but you can override that by specifying a `content_type` property with a custom mime-type.
 
-For example you might want to build a custom RSS feed to get all posts tagged with `podcast` and deliver them to iTunes. In fact, [here's a full tutorial](/tutorials/custom-rss-feed/) for how to do that. 
+For example you might want to build a custom RSS feed to get all posts tagged with `podcast` and deliver them to iTunes. In fact, [here's a full tutorial](/tutorials/custom-rss-feed/) for how to do that.
 
 Or perhaps you'd like to build your own little public JSON API of breaking news, and provide it to other people to be able to consume your most important updates inside their websites and applications? That's fine too, you'd just pass `json` as the `content_type`.
 
