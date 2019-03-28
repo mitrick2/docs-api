@@ -199,7 +199,7 @@ curl "https://demo.ghost.io/ghost/api/v2/content/posts/?key=22444f78447824223cef
 
 Returns:
 
-`embed:api/v2/content/demo/posts-tags-authors.json`
+`embed:api/v2/content/demo/posts-with-tags-authors.json`
 
 ### Pages
 
@@ -259,27 +259,7 @@ GET /content/settings/
 
 The settings endpoint is a special case. You will receive a single object, rather than an array. This endpoint doesn't accept any query parameters.
 
-```json
-{"settings": {
-  "title": "Ghost",
-  "description": "The professional publishing platform",
-  "logo": "https://static.ghost.org/v1.0.0/images/ghost-logo.svg",
-  "icon": "https://static.ghost.org/favicon.ico",
-  "cover_image": "https://static.ghost.org/v1.0.0/images/blog-cover.jpg",
-  "facebook": "ghost",
-  "twitter": "tryghost",
-  "lang": "en",
-  "timezone": "Etc/UTC",
-  "codeinjection_head": null,
-  "codeinjection_foot": null,
-  "navigation": [
-     { "label": "Home", "url": "/" },
-     { "label": "Tag", "url": "/tag/getting-started/" },
-     { "label": "Author", "url": "/author/ghost/" },
-     { "label": "Help", "url": "https://help.ghost.org" }
-  ]
-}};
-```
+`embed:api/v2/content/demo/settings.json`
 
 ---
 
