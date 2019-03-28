@@ -572,7 +572,7 @@ All writable fields of a post can be updated via the edit endpoint. The `updated
 
 ```json:title=PUT /admin/posts/5b7ada404f87d200b5b1f9c8/
 {
-    "post": [{
+    "posts": [{
         "title": "My new title",
         "updated_at": "2019-03-05T20:52:37.000Z"
     }]
