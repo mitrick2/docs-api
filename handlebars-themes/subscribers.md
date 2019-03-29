@@ -98,7 +98,7 @@ This form is passed a set of **required** attributes: `action`, `hidden` and `sc
 
 ## Overriding the default templates
 
-It’s possible to override the default [`subscribe.hbs`](https://github.com/TryGhost/Ghost/blob/master/core/server/apps/subscribers/lib/views/subscribe.hbs) and [`subscribe_form.hbs`](https://github.com/TryGhost/Ghost/blob/master/core/server/helpers/tpl/subscribe_form.hbs) templates by creating files in your theme with the same name (must be in the /partials folder). It’s useful to copy/paste the file contents to provide a starting point.
+It’s possible to override the default [`subscribe.hbs`](https://github.com/TryGhost/Ghost/blob/master/core/server/apps/subscribers/lib/views/subscribe.hbs) (in the root folder) and [`subscribe_form.hbs`](https://github.com/TryGhost/Ghost/blob/master/core/server/helpers/tpl/subscribe_form.hbs) (in the /partials folder) templates by creating files in your theme with the same name. It’s useful to copy/paste the file contents to provide a starting point.
 Be mindful of updates to functionality when using custom templates. 
 
 ## Summary
