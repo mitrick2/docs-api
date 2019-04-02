@@ -42,10 +42,13 @@ Here are some useful options when using the `ghost install` command:
 
 ```bash
 # Install a specific version (1.0.0 or higher)
-ghost install [version]
+ghost install --[version]
 
 # Install locally for development
 ghost install local
+
+# Install specific version locally
+ghost install --[version] local
 
 # Process manager to run ghost with (default: systemd)
 --process
