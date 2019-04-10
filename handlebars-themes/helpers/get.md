@@ -58,11 +58,12 @@ The `{{#get}}` helper has many more options than most helpers, the following sec
 
 ## Parameters
 
-The first parameter passed in is the name of the resource that you want to query. This can be either `"posts"`, `"tags"` or `"authors"`.
+The first parameter passed in is the name of the resource that you want to query. This can be either `"posts"`, `"pages"`, `"tags"` or `"authors"`.
 
 **posts** - only published posts can be retrieved
+**pages** - only published pages can be retrieved
 **tags** - any tag that has a post associated with it
-**authors** - any author who has a post associated with it
+**authors** - any author who has a post or page associated with it
 
 Example:
 
