@@ -60,8 +60,11 @@ Each command is documented in detail on its own page:
 There are some general flags you may find useful when using `ghost-cli`:
 
 ```bash
+# Output usage information for Ghost-CLI
+ghost --help, ghost -h, ghost help
+
 # Enables the verbose logging output for debugging
-ghost --verbose, -V
+ghost --verbose, ghost -V
 
 # Print your CLI version and Ghost version
 ghost --version, ghost -v, ghost version
