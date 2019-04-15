@@ -224,7 +224,7 @@ This is a powerful tool that allows you to make a complex logic-based queries on
 ```handlebars
 {{#get "posts" limit="all" filter="featured:true"}}
     {{#foreach posts}}
-        <a href="{{slug}}">{title}}</a>
+        <a href="{{slug}}">{{title}}</a>
     {{/foreach}}
 {{/get}}
 ```
