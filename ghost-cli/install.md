@@ -53,9 +53,9 @@ ghost install local --v1
 
 ```
 
-## Flags
+## Options
 
-As `ghost install` runs nested commands, it also accepts flags for the `ghost doctor`, `ghost setup` (including `ghost config`) and `ghost start` commands.
+As `ghost install` runs nested commands, it also accepts flags for the `ghost doctor`, `ghost config`, `ghost setup` and `ghost start` commands.
 
 See the individual command docs, or run `ghost install --help` for more detailed information.
 
@@ -64,14 +64,14 @@ See the individual command docs, or run `ghost install --help` for more detailed
 ghost install --help
 
 # Install in development mode for a staging env
-ghost install --development
+ghost install --development, ghost install -D
 
 # Install latest version of v1
 ghost install --v1
 
 # Select the directory to install Ghost in
 ghost install --dir path/to/dir
-- 
+ 
 # Install Ghost from a specific zip (useful for testing or custom builds)
 ghost install --zip path/to/file.zip
 

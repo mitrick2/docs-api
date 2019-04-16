@@ -55,13 +55,13 @@ Each command is documented in detail on its own page:
 - [ghost uninstall](/api/ghost-cli/uninstall/)
 
 
-## Useful flags
+## Useful options
 
-There are some general flags you may find useful when using `ghost-cli`:
+There are some global flags you may find useful when using `ghost-cli`:
 
 ```bash
 # Output usage information for Ghost-CLI
-ghost --help, ghost -h, ghost help
+ghost --help, ghost -h, ghost help, ghost [command] --help
 
 # Enables the verbose logging output for debugging
 ghost --verbose, ghost -V
@@ -69,8 +69,14 @@ ghost --verbose, ghost -V
 # Print your CLI version and Ghost version
 ghost --version, ghost -v, ghost version
 
+# Run the command in a different directory 
+ghost --dir path/to/directory
+
 # Runs command without asking for any input
 ghost --no-prompt
+
+# Runs command without using colours
+ghost --no-color
 ```
 
 ## Next steps 
