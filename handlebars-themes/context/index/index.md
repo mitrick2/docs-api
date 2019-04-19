@@ -20,7 +20,7 @@ Use: {{#is "index"}}{{/is}} to detect this context.
 
 ## Routes
 
-The index context is present on both the root URL of the site, e.g. `/` and also on subsequent pages of the post list, which live at `/page/:num/`. All routes are customisable with [dynamic routing](/concepts/routing/).
+The index context is present on both the root URL of the site, e.g. `/` and also on subsequent pages of the post list, which live at `/page/:num/`. All routes are customisable with [dynamic routing](/api/handlebars-themes/routing/).
 
 
 ## Templates
