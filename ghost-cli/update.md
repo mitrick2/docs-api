@@ -18,20 +18,45 @@ The vast majority of Ghost upgrades are automated from a single command. Typical
 
 The Ghost-CLI has a single command for upgrades: `ghost update`. 
 
+## Arguments
+
+```bash
+# Update to a specific version (1.0.0 or higher)
+ghost update [version]
+
+# Update to version 2.15.0
+ghost update 2.15.0
+
+```
+
 ## Options
+
+The `ghost update` command always runs `ghost doctor` first to check that your site will update correctly.
+
+Run `ghost update --help` for more detailed information.
 
 ```bash
 # If an upgrade goes wrong, use the rollback flag
---rollback
+ghost update --rollback
 
-# Installs and re-download the latest version of Ghost
---force
+# Install and re-download the latest version of Ghost
+ghost update --force
 
-# Updates to a specific version number
-ghost update [version number]
+# Updates to the latest within v1
+ghost update --v1
 
-# Checks what version is currently running
---version
+# Don't restart after upgrading
+ghost update --no-restart
+
+# Disable the automatic rollback on failure
+ghost update --no-auto-rollback
+
+# Upgrade Ghost from a specific zip (useful for testing or custom builds)
+ghost update --zip path/to/file.zip
+
+# Disable memory availability checks in ghost doctor 
+ghost update --no-check-mem
+
 ```
 
 ## Major upgrades
@@ -42,3 +67,8 @@ Use the relevant upgrade documentation as a guide to the necessary steps for a s
 
 * [Upgrading to Ghost 1.0](/faq/upgrade-to-ghost-1-0/)
 * [Upgrading to Ghost 2.0](/faq/upgrade-to-ghost-2-0/)
+
+
+## Debugging
+
+If running `ghost update` gives an error, try using `ghost run` to debug the error.
