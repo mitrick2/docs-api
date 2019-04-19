@@ -14,7 +14,7 @@ keywords:
 sidebar: "ghost-cli"
 ---
 
-Securely removes a Ghost installation and all related configuration and data.
+Safely removes a Ghost installation and all related configuration & data.
 
 **Use with caution** - this command completely removes a Ghost install along with all of its related data and config. There is no recovery from this if you have no backups. 
 
@@ -38,4 +38,4 @@ The following tasks are performed:
 - remove any related systemd or nginx configuration
 - remove the remaining files inside the install folder
 
-> ⚠ Running `ghost uninstall --no-prompt` will skip the warning and remove Ghost without a prompt.
+> ⚠ Running `ghost uninstall --no-prompt` or `ghost uninstall --force` will skip the warning and remove Ghost without a prompt.
