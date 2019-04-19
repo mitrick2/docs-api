@@ -52,8 +52,8 @@ When outputting the tag attributes, you can use a block expression (`{{#tag}}{{/
 - **description** - a description of the tag
 - **feature_image** - the cover image associated with the tag 
 - **meta_title** - custom meta title for the page 
-- **meta_description** - Custom meta description for the page 
--**url** - the web address for the tag's page 
+- **meta_description** - custom meta description for the page 
+- **url** - the web address for the tag's page 
 
 ### Post list
 
