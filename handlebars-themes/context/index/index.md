@@ -31,8 +31,7 @@ Note that the `index.hbs` template is also used to output the tag and author con
 
 ## Data
 
-The `index` context provides templates with access to an array of [
-post objects and a pagination object. As with all contexts, all of the `@blog` global data is also available.
+The `index` context provides templates with access to an array of post objects and a pagination object. As with all contexts, all of the `@blog` global data is also available.
 
 The number of posts provided will depend on the `post per page` setting which you can configure [in your package.json](/api/handlebars-themes/helpers/foreach/) file. The array will provide the correct posts for the current page number, with the posts ordered chronologically, newest first. Therefore on the home page, the theme will have access to the first 6 posts by default. On /page/2/ the theme will have access to posts 7-12.
 
