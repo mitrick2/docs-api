@@ -39,9 +39,9 @@ To reference a working example of a `package.json` file, review the [Casper file
         "email": "your@email.here"
     },
     "config": {
-        "posts_per_page": 10
+        "posts_per_page": 10,
+        "image_sizes": {}
     },
-    "image_sizes": {}
 }
 ```
 
