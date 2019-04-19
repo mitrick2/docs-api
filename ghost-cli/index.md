@@ -38,22 +38,6 @@ sudo yarn global add ghost-cli@latest
 
 Locally, you likely don't need sudo. Using `@latest` means this command with either install or update ghost-cli and you only have to remember the one command for both ✨
 
-Each command is documented in detail on its own page:
-
-- [ghost config](/api/ghost-cli/config/) 
-- [ghost doctor](/api/ghost-cli/doctor/)
-- [ghost help](/api/ghost-cli/help/)
-- [ghost install](/api/ghost-cli/install/) 
-- [ghost log](/api/ghost-cli/log/) 
-- [ghost ls](/api/ghost-cli/ls/) 
-- [ghost setup](/api/ghost-cli/setup/) 
-- [ghost start](/api/ghost-cli/start/)
-- [ghost stop](/api/ghost-cli/stop/) 
-- [ghost restart](/api/ghost-cli/restart/) 
-- [ghost run](/api/ghost-cli/run/) 
-- [ghost update](/api/ghost-cli/update/) 
-- [ghost uninstall](/api/ghost-cli/uninstall/)
-
 
 ## Useful options
 
@@ -78,6 +62,26 @@ ghost --no-prompt
 # Runs command without using colours
 ghost --no-color
 ```
+
+## Command list 
+
+Each command is documented in detail on its own page. 
+
+You can always run `ghost --help` or `ghost [command] --help` to get more detail.
+
+- [ghost config](/api/ghost-cli/config/) 
+- [ghost doctor](/api/ghost-cli/doctor/)
+- [ghost help](/api/ghost-cli/help/)
+- [ghost install](/api/ghost-cli/install/) 
+- [ghost log](/api/ghost-cli/log/) 
+- [ghost ls](/api/ghost-cli/ls/) 
+- [ghost setup](/api/ghost-cli/setup/) 
+- [ghost start](/api/ghost-cli/start/)
+- [ghost stop](/api/ghost-cli/stop/) 
+- [ghost restart](/api/ghost-cli/restart/) 
+- [ghost run](/api/ghost-cli/run/) 
+- [ghost update](/api/ghost-cli/update/) 
+- [ghost uninstall](/api/ghost-cli/uninstall/)
 
 ## Next steps 
 

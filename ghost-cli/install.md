@@ -55,7 +55,7 @@ ghost install local --v1
 
 ## Options
 
-As `ghost install` runs nested commands, it also accepts flags for the `ghost doctor`, `ghost config`, `ghost setup` and `ghost start` commands.
+As `ghost install` runs nested commands, it also accepts options for the `ghost doctor`, `ghost config`, `ghost setup` and `ghost start` commands.
 
 See the individual command docs, or run `ghost install --help` for more detailed information.
 
