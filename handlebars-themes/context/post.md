@@ -30,7 +30,7 @@ The default template for a post is `post.hbs`, this template is required in all 
 
 Additionally, you can provide a custom template for a specific post. If there is a `post-:slug.hbs` file with the `:slug` matching the post's slug this will be used instead.
 
-For example, if you have an '1.0 Announcement' post with the url /1-0-announcement/, adding a template called `post-1-0-announcement.hbs` will cause that template to be used for the announcement post, instead of `post.hbs`.
+For example, if you have a '1.0 Announcement' post with the url /1-0-announcement/, adding a template called `post-1-0-announcement.hbs` will cause that template to be used for the announcement post, instead of `post.hbs`.
 
 Another option is to use a "global" custom post template. If you add a template to your theme called `custom-gallery.hbs` it will be available in a dropdown in the post settings menu so that it can be used on as many posts (or pages) as you want.
 
@@ -47,22 +47,22 @@ When outputting the post, you can use a block expression (`{{#post}}{{/post}}`) 
 
 - **id** - the Object ID of the post
 - **comment_id** - The old, pre-1.0 incremental id of a post if present, or else the new Object ID
-- **title** - the title of your site post title helper
+- **title** - the title of your site post
 - **slug** - slugified version of the title (used in urls and also useful for class names)
-- **excerpt** - a short preview of your post content excerpt helper
-- **content** - the content of the post content helper
+- **excerpt** - a short preview of your post content
+- **content** - the content of the post
 - **url** - the web address for the post page (see url helper) and special attributes
-- **feature_image** - the cover image associated with the post img_url helper
+- **feature_image** - the cover image associated with the post
 - **featured** - indicates a featured post. Defaults to `false`
-- **page** `true` if the post is a page. Defaults to `false`
-- **meta_title** - custom meta title for the post meta_title helper
-- **meta_description**  Custom meta description for the post meta_description helper
-- **published_at:** date and time when the post was published date helper
-- **updated_at:** date and time when the post was last updated date helper
-- **created_at:** date and time when the post was created
+- **page** - `true` if the post is a page. Defaults to `false`
+- **meta_title** - custom meta title for the post
+- **meta_description** - custom meta description for the post
+- **published_at** - date and time when the post was published
+- **updated_at** - date and time when the post was last updated
+- **created_at** - date and time when the post was created
 -  **author** - full details of the post's author 
 - **tags** - a list of tags associated with the post 
-- **primary_tag** - direct reference to the first tag associated with with the post
+- **primary_tag** - direct reference to the first tag associated with the post
 
 ## Helpers
 
@@ -103,7 +103,7 @@ The post model is the most complex model in Ghost, and it has a couple of specia
 
 URL is a calculated, created based on the site's permalink setting and the post's other properties. It exists as a data attribute, but should always be output using the special `{{url}}` helper rather than referenced as a data attribute.
 
-That means always open a context and use `{{url}}` explicitly, and is the same for _all_ resources, but especially important because post has a data attribute present. So, **always** do `{{#post}}{{url}}{{/post}}` **never** do `{{post.url}}`.
+That means always open a context and use `{{url}}` explicitly, and is the same for _all_ resources, but especially important because post has a data attribute present. So, **always** do `{{#post}}{{url}}{{/post}}`. **Never** do `{{post.url}}`.
 
 
 ### Comment ID
