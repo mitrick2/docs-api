@@ -81,7 +81,15 @@ ghost install --no-stack
 # Install without running setup
 ghost install --no-setup
 
+# Install without starting Ghost
+ghost install --no-start
+
+# Tells the process manager not to restart Ghost on server reboot
+ghost setup --no-enable
+
 # Install without prompting (disable setup, or pass all required parameters as arguments)
 ghost install --no-prompt
 
 ```
+
+See the [ghost setup](/api/ghost-cli/setup) and [ghost config](/api/ghost-cli/config) command for full options.
