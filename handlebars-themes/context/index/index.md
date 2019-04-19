@@ -99,4 +99,4 @@ The default template for the home page is `index.hbs`. You can optionally add a 
 
 ### Data
 
-The data available on the home page is exactly the same as described in the index context. The home page's posts will always be the first X posts ordered by published date with the newest first, where X is defined by the post per page setting in the Ghost admin.
+The data available on the home page is exactly the same as described in the index context. The home page's posts will always be the first X posts ordered by published date with the newest first, where X is defined by the `posts_per_page` setting in the `package.json` file.
