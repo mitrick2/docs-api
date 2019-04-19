@@ -43,7 +43,7 @@ When outputting the page, you can use a block expression (`{{#post}}{{/post}}`) 
 ### Post (page) object attributes
 
 - **id** - the incremental ID of the page
-- **title** - the title of your static page title helper
+- **title** - the title of your static page
 - **excerpt** - a short preview of your page content 
 - **content** - the content of the page
 - **url** - the web address for the static page 
@@ -51,10 +51,10 @@ When outputting the page, you can use a block expression (`{{#post}}{{/post}}`) 
 - **featured** - indicates a featured page. Defaults to `false`
 - **page** - `true` if the post is a static page. Defaults to `false`
 - **meta_title** - custom meta title for the page 
-- **meta_description**  -Custom meta description for the page 
-- **published_at:** - date and time when the page was published  
-- **updated_at:** - date and time when the page was last updated
-- **created_at:** - date and time when the page was created
+- **meta_description** - custom meta description for the page 
+- **published_at** - date and time when the page was published  
+- **updated_at** - date and time when the page was last updated
+- **created_at** - date and time when the page was created
 -  **author** - full details of the page's author
 - **tags** - a list of tags associated with the page
 
