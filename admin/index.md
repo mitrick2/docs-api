@@ -176,40 +176,11 @@ Regardless of language, you'll need to:
 
 These examples show how to generate a valid JWT in various languages & JWT libraries. The bash example shows step-by-step how to create a token without using a library.
 
-<div class="code-tabs">
-    <input name="tabs" type="radio" id="tab-bash" checked="checked"/>
-    <label for="tab-bash">Bash (cURL)</label>
-    <div class="panel">
-
-
-`embed:api/v2/admin/jwt/auth.sh`
-
-</div>
- <input name="tabs" type="radio" id="tab-js-client"/>
-    <label for="tab-js-client">JavaScript (Client)</label>
-    <div class="panel">
-
-
-`embed:api/v2/admin/jwt/auth-client.js`
-
-</div>
- <input name="tabs" type="radio" id="tab-js"/>
-    <label for="tab-js">JavaScript</label>
-    <div class="panel">
-
-
-`embed:api/v2/admin/jwt/auth.js`
-
-</div>
-    <input name="tabs" type="radio" id="tab-ruby"/>
-    <label for="tab-ruby">Ruby</label>
-    <div class="panel">
-    
-
-`embed:api/v2/admin/jwt/auth.rb`    
-    
-</div>
-</div>
+[[Snippet]]
+| embed://api/v2/admin/jwt/auth.sh | Bash (cURL)
+| embed://api/v2/admin/jwt/auth-client.js | JavaScript (Client)
+| embed://api/v2/admin/jwt/auth.js | JavaScript
+| embed://api/v2/admin/jwt/auth.rb | Ruby
 
 ### User Authentication
 
@@ -357,130 +328,8 @@ Whenever you fetch posts, or create or edit a post, the API will respond with an
 
 By default, the API expects and returns content in the **mobiledoc** format only. To include **html** in the response use the `formats` parameter:
 
-```json:title=GET /admin/posts/?formats%3Dhtml,mobiledoc
-{
-    "posts": [{
-        "id": "5b7ada404f87d200b5b1f9c8",
-        "uuid": "22af052d-2bc1-4306-96d1-667584c797c7",
-        "title": "Welcome to Ghost",
-        "slug": "welcome",
-        "mobiledoc": "{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"👋 Welcome, it's great to have you here.\"]]]]}",
-        "html": "<p>👋 Welcome, it's great to have you here.</p>",
-        "comment_id": "5b7ada404f87d200b5b1f9c8",
-        "feature_image": "https://casper.ghost.org/v2.0.0/images/welcome-to-ghost.jpg",
-        "featured": false,
-        "status": "published",
-        "meta_title": null,
-        "meta_description": null,
-        "created_at": "2018-08-20T15:12:00.000Z",
-        "updated_at": "2018-08-20T15:12:00.000Z",
-        "published_at": "2018-08-20T15:12:06.000Z",
-        "custom_excerpt": "Welcome, it's great to have you here.",
-        "codeinjection_head": null,
-        "codeinjection_foot": null,
-        "og_image": null,
-        "og_title": null,
-        "og_description": null,
-        "twitter_image": null,
-        "twitter_title": null,
-        "twitter_description": null,
-        "custom_template": null,
-        "tags": [
-            {
-                "id": "59799bbd6ebb2f00243a33db",
-                "name": "Getting Started",
-                "slug": "getting-started",
-                "description": null,
-                "feature_image": null,
-                "visibility": "public",
-                "meta_title": null,
-                "meta_description": null,
-                "created_at": "2017-07-27T07:52:29.000Z",
-                "updated_at": "2017-07-27T07:52:29.000Z",
-                "url": "https://demo.ghost.io/tag/getting-started/"
-            }
-        ],
-        "authors": [
-            {
-                "id": "5951f5fca366002ebd5dbef7",
-                "name": "Ghost",
-                "slug": "ghost",
-                "profile_image": "https://demo.ghost.io/content/images/2017/07/ghost-icon.png",
-                "cover_image": null,
-                "bio": "The professional publishing platform",
-                "website": "https://ghost.org",
-                "location": null,
-                "facebook": "ghost",
-                "twitter": "@tryghost",
-                "accessibility": null,
-                "status": "active",
-                "meta_title": null,
-                "meta_description": null,
-                "tour": null,
-                "last_seen": null,
-                "created_at": "2017-07-27T07:52:31.000Z",
-                "updated_at": "2017-07-27T08:28:34.000Z",
-                "roles": [
-                    {
-                        "id": "59799bbe6ebb2f00243a33e1",
-                        "name": "Author",
-                        "description": "Authors",
-                        "created_at": "2017-07-27T07:52:30.000Z",
-                        "updated_at": "2017-07-27T07:52:30.000Z"
-                    }
-                ],
-                "url": "https://demo.ghost.io/author/ghost/"
-            }
-        ],
-        "primary_author": {
-            "id": "5951f5fca366002ebd5dbef7",
-            "name": "Ghost",
-            "slug": "ghost",
-            "profile_image": "https://demo.ghost.io/content/images/2017/07/ghost-icon.png",
-            "cover_image": null,
-            "bio": "The professional publishing platform",
-            "website": "https://ghost.org",
-            "location": null,
-            "facebook": "ghost",
-            "twitter": "@tryghost",
-            "accessibility": null,
-            "status": "active",
-            "meta_title": null,
-            "meta_description": null,
-            "tour": null,
-            "last_seen": null,
-            "created_at": "2017-07-27T07:52:31.000Z",
-            "updated_at": "2017-07-27T08:28:34.000Z",
-            "roles": [
-                {
-                    "id": "59799bbe6ebb2f00243a33e1",
-                    "name": "Author",
-                    "description": "Authors",
-                    "created_at": "2017-07-27T07:52:30.000Z",
-                    "updated_at": "2017-07-27T07:52:30.000Z"
-                }
-            ],
-            "url": "https://demo.ghost.io/author/ghost/"
-        },
-        "primary_tag": {
-            "id": "59799bbd6ebb2f00243a33db",
-            "name": "Getting Started",
-            "slug": "getting-started",
-            "description": null,
-            "feature_image": null,
-            "visibility": "public",
-            "meta_title": null,
-            "meta_description": null,
-            "created_at": "2017-07-27T07:52:29.000Z",
-            "updated_at": "2017-07-27T07:52:29.000Z",
-            "url": "https://demo.ghost.io/tag/getting-started/"
-        },
-        "url": "https://demo.ghost.io/welcome/",
-        "canonical_url": null,
-        "excerpt": "Welcome, it's great to have you here."
-    }
-]}
-```
+[[Snippet | GET /admin/posts/?formats%3Dhtml,mobiledoc]]
+| embed://api/v2/admin/demo/posts-with-formats-html-mobiledoc.json
 
 #### Parameters
 
