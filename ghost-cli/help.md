@@ -40,7 +40,7 @@ Commands:
   ghost update [version]       Update a Ghost instance
   ghost version                Prints out Ghost-CLI version (and Ghost version if one exists)
 
-Options:
+Global Options:
   --help             Show help                                                             [boolean]
   -d, --dir          Folder to run command in
   -D, --development  Run in development mode                                               [boolean]
@@ -52,4 +52,4 @@ Options:
 
 ## Options
 
-It's also possible to run `ghost install help` and `ghost setup help` to get a specific list of commands and help for the install and setup processes. Don't worry - you got this! 💪
+It's also possible to run `ghost install --help` and `ghost setup --help` to get a specific list of commands and help for the install and setup processes. Don't worry - you got this! 💪

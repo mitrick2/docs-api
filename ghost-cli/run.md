@@ -16,4 +16,8 @@ sidebar: "ghost-cli"
 
 This utility command starts your Ghost site in foreground.
 
-Use `ghost run`. It is only useful for debugging purposes. Nothing more to see here 🤷‍♀️
+Use `ghost run` to start Ghost without using the configured process manager. This runs Ghost directly, similar to `node index.js`. 
+
+All the output from Ghost will be written directly to your terminal, showing up any uncaught errors or other output that might not appear in log files.
+
+This is only useful for debugging purposes. Nothing more to see here 🤷‍♀️

@@ -38,7 +38,36 @@ sudo yarn global add ghost-cli@latest
 
 Locally, you likely don't need sudo. Using `@latest` means this command with either install or update ghost-cli and you only have to remember the one command for both ✨
 
-Each command is documented in detail on its own page:
+
+## Useful options
+
+There are some global flags you may find useful when using `ghost-cli`:
+
+```bash
+# Output usage information for Ghost-CLI
+ghost --help, ghost -h, ghost help, ghost [command] --help
+
+# Enables the verbose logging output for debugging
+ghost --verbose, ghost -V
+
+# Print your CLI version and Ghost version
+ghost --version, ghost -v, ghost version
+
+# Run the command in a different directory 
+ghost --dir path/to/directory
+
+# Runs command without asking for any input
+ghost --no-prompt
+
+# Runs command without using colours
+ghost --no-color
+```
+
+## Command list 
+
+Each command is documented in detail on its own page. 
+
+You can always run `ghost --help` or `ghost [command] --help` to get more detail.
 
 - [ghost config](/api/ghost-cli/config/) 
 - [ghost doctor](/api/ghost-cli/doctor/)
@@ -53,22 +82,6 @@ Each command is documented in detail on its own page:
 - [ghost run](/api/ghost-cli/run/) 
 - [ghost update](/api/ghost-cli/update/) 
 - [ghost uninstall](/api/ghost-cli/uninstall/)
-
-
-## Useful flags
-
-There are some general flags you may find useful when using `ghost-cli`:
-
-```bash
-# Enables the verbose logging output for debugging
-ghost --verbose, -V
-
-# Print your CLI version and Ghost version
-ghost --version, ghost -v, ghost version
-
-# Runs command without asking for any input
-ghost --no-prompt
-```
 
 ## Next steps 
 

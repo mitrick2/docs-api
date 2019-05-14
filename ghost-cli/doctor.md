@@ -31,3 +31,13 @@ ghost doctor startup
 ghost doctor setup
 ```
 
+## Options
+
+Run `ghost doctor --help` for more detailed information.
+
+```bash
+
+# Disable the memory availability checks
+ghost doctor --no-check-mem
+
+```

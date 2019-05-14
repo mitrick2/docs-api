@@ -27,9 +27,7 @@ The `ghost install` command runs a nested command structure, but you only ever h
 
 First, it will run `ghost doctor` to check your environment is compatible. If checks pass, a local folder is setup, and Ghost is then downloaded from npm and installed.
 
-Next, `ghost setup` runs, which will provide [prompts](/install/ubuntu/#install-questions) for you to configure your new publication, including creating a MySQL user, initialising a database, configure nginx and sets up SSL. 
-
-As the install process runs, you'll be prompted to confirm certain steps or provide information. Here's a run down of what happens:
+Next, `ghost setup` runs, which will provide [prompts](/install/ubuntu/#install-questions) for you to configure your new publication via the `ghost config` command, including creating a MySQL user, initialising a database, configure nginx and sets up SSL. 
 
 Finally, the CLI will prompt to see if you want to run Ghost and if you choose yes `ghost start` will run. 
 
@@ -44,21 +42,54 @@ Here are some useful options when using the `ghost install` command:
 # Install a specific version (1.0.0 or higher)
 ghost install [version]
 
+# Install version 2.15.0
+ghost install 2.15.0
+
 # Install locally for development
 ghost install local
 
-# Process manager to run ghost with (default: systemd)
---process
+# Install a local copy of Ghost v1 (Useful when upgrading from 0.x)
+ghost install local --v1
 
-# Picks a directory to install Ghost in
---dir
+```
 
-# Install without running setup
---no-setup
+## Options
 
-# Specify an sqlite3 database rather than the default MySQL
---db sqlite3
+As `ghost install` runs nested commands, it also accepts options for the `ghost doctor`, `ghost config`, `ghost setup` and `ghost start` commands.
+
+See the individual command docs, or run `ghost install --help` for more detailed information.
+
+```bash
+# Get more information before running the command
+ghost install --help
 
 # Install in development mode for a staging env
---development
+ghost install --development, ghost install -D
+
+# Install latest version of v1
+ghost install --v1
+
+# Select the directory to install Ghost in
+ghost install --dir path/to/dir
+ 
+# Install Ghost from a specific zip (useful for testing or custom builds)
+ghost install --zip path/to/file.zip
+
+# Disable stack checks
+ghost install --no-stack
+
+# Install without running setup
+ghost install --no-setup
+
+# Install without starting Ghost
+ghost install --no-start
+
+# Tells the process manager not to restart Ghost on server reboot
+ghost setup --no-enable
+
+# Install without prompting (disable setup, or pass all required parameters as arguments)
+ghost install --no-prompt
+
 ```
+
+See the [ghost setup](/api/ghost-cli/setup) and [ghost config](/api/ghost-cli/config) command for full options.
