@@ -94,7 +94,7 @@ Returning to the earlier example, all of the posts within Ghost here are divided
 ### Podcast collection
 
 - **Appears on:** `site.com/podcast/`
-- **Post URls:** `site.com/podcast/my-episode/`
+- **Post URLs:** `site.com/podcast/my-episode/`
 - **Contains posts with:** a `primary_tag` of `podcast`
 
 <br>

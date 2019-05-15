@@ -18,7 +18,7 @@ Template routes allow you to map individual URLs to specific template files with
 
 Using template routes is very minimal. There's no default data associated with them, so there isn't any content automatically loaded in from Ghost like there is with posts and pages. Instead, you can write all the custom code you like into a specific file, and then have that file load on the route of your choice.
 
-Custom routes are handy for creating static pages outside of Ghost Admin, when you don't want them to be editable, they use lots of custom code, or you need to create a specific custom URL which more than a basic slug.
+Custom routes are handy for creating static pages outside of Ghost Admin, when you don't want them to be editable, they use lots of custom code, or you need to create a specific custom URL with more than a basic slug.
 
 Don't worry, we'll go through some examples of all of the above!
 
@@ -35,7 +35,7 @@ routes:
   /features/: features
 ```
 
-The first half is the is the URL: `site.com/features` - the second is the template which will be used: `features.hbs` - you leave off the `.hbs` because Ghost takes care of that part. Now you've created a new static page in Ghost, without using the admin!
+The first half is the URL: `site.com/features/` - the second is the template which will be used: `features.hbs` - you leave off the `.hbs` because Ghost takes care of that part. Now you've created a new static page in Ghost, without using the admin!
 
 You can also use custom routes to simulate subdirectories. For example if you want a "Team" page to appear, for navigational purposes, as if it's a subpage of your "About" page.
 
@@ -65,7 +65,7 @@ routes:
 
 This will assign all of the data from a Ghost **page** with a slug of `team` to the new route, and it will also automatically redirect the original URL of the content to the new one.
 
-Now, the data from `site.com/team` will be available inside the `{{#page}}` block helper in a custom `team.hbs` template on `site.com/about/team/` and the old URL will redirect to the new one, to prevent the content being duplicated in two places.
+Now, the data from `site.com/team/` will be available inside the `{{#page}}` block helper in a custom `team.hbs` template on `site.com/about/team/` and the old URL will redirect to the new one, to prevent the content being duplicated in two places.
 
 ---
 
