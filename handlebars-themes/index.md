@@ -4,7 +4,7 @@ path: /api/handlebars-themes/
 date: "2018-10-01"
 meta_title: "Ghost Handlebars Themes - Building a custom Ghost theme - Docs"
 meta_description: "Our handlebars theme templating framework works with the Ghost API to build flexible publishing websites. Get all the tools you need to start building your custom theme here!"
-next: 
+next:
   url: "/api/handlebars-themes/structure/"
   title: "Structure"
 sidebar: "handlebars"
@@ -23,7 +23,7 @@ Ghost themes use the Handlebars templating language which creates a strong separ
 
 Ghost also makes use of an additional library called `express-hbs` which adds some additional features to Handlebars, such as layouts and partials.
 
-This documentation gives you the tools required to create static HTML and CSS for a theme, using Handlebars expressions when you need to render dynamic data. 
+This documentation gives you the tools required to create static HTML and CSS for a theme, using Handlebars expressions when you need to render dynamic data.
 
 
 ## Handlebars
@@ -38,7 +38,7 @@ Installation of Handlebars is already done for you in Ghost ✨
 
 ## GScan
 
-Validating your Ghost theme is handled efficiently with the [GScan tool](https://gscan.ghost.org/). GScan will check your theme for errors, deprecations and compatibility issues. GScan is used in several ways: 
+Validating your Ghost theme is handled efficiently with the [GScan tool](https://gscan.ghost.org/). GScan will check your theme for errors, deprecations and compatibility issues. GScan is used in several ways:
 
 * The [GScan site](https://gscan.ghost.org/) is your first port of call to test any themes that you're building to get a full validation report
 
@@ -48,9 +48,9 @@ Validating your Ghost theme is handled efficiently with the [GScan tool](https:/
 
 #### Command line
 
-To use GScan as a command line tool, globally install the `gscan` npm package: 
+To use GScan as a command line tool, globally install the `gscan` npm package:
 
-```bashhtml:title=Terminal
+```bash:title=Terminal
 # Install the npm package
 npm install -g gscan
 
@@ -61,7 +61,7 @@ gscan /path/to/ghost/content/themes/casper
 gscan -z /path/to/download/theme.zip
 ```
 
-## What's next? 
+## What's next?
 
 That's all of the background context required to get started. From here you'll take a look at the structure of Ghost themes and templates, and learn everything you need to know about the `package.json` file.
 
