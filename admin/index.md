@@ -36,7 +36,7 @@ Your admin domain can be different to your main domain, and may include a subdir
 
 #### Version
 
-Version strings are required and usually start with `v`. The [api versioning](/faq/api-versioning/) guide explains the current available versions and stability index. The Admin API also has a stability index for specific [endpoints](/api/admin/#endpoints). 
+Version strings are required and usually start with `v`. The [api versioning](/faq/api-versioning/) guide explains the current available versions and stability index. The Admin API also has a stability index for specific [endpoints](/api/admin/#endpoints).
 
 
 ### JSON Format
@@ -52,7 +52,7 @@ The API uses a consistent JSON structure for all requests and responses:
 }
 ```
 
-- `resource_type`: will always match the resource name in the URL. All resources are returned wrapped in an array, with the exception of `/site/` and `/settings/`. 
+- `resource_type`: will always match the resource name in the URL. All resources are returned wrapped in an array, with the exception of `/site/` and `/settings/`.
 - `meta`: contains [pagination](/api/content/#pagination) information for browse requests.
 
 #### Composing requests
@@ -91,18 +91,18 @@ See the [Content API](/api/content/#filter).
 
 ## Authentication
 
-There are two methods for authenticating with the Admin API: [token authentication](#token-authentication) and [user authentication](#user-authentication). Most applications integrating with the Ghost Admin API should use token authentication. 
+There are two methods for authenticating with the Admin API: [token authentication](#token-authentication) and [user authentication](#user-authentication). Most applications integrating with the Ghost Admin API should use token authentication.
 
 
 The JavaScript Admin API Client supports token authentication.
 
 ### Choosing an authentication method
 
-**Token authentication** is intended for integrations that handle common workflows, such as publishing new content, or sharing content to other platforms. 
+**Token authentication** is intended for integrations that handle common workflows, such as publishing new content, or sharing content to other platforms.
 
 Using tokens, you authenticate as an integration. Each integration can have associated API keys &amp; webhooks and are able to perform API requests independently of users. Admin API keys are used to generate short-lived single-use JSON Web Tokens (JWTs), which are then used to authenticate a request. The API Key is secret, and therefore this authentication method is only suitable for secure server side environments.
 
-**User authentication** is intended for fully-fledged clients where different users login and manage various resources as themselves. 
+**User authentication** is intended for fully-fledged clients where different users login and manage various resources as themselves.
 
 Using an email address and password, you authenticate as a specific user, with their role-based permissions. Via the session API, credentials are swapped for a cookie-based session, which is then used to authenticate further API requests. Provided that passwords are entered securely, user-authentication is safe for use in the browser.
 
@@ -111,8 +111,8 @@ Using an email address and password, you authenticate as a specific user, with t
 
 Integrations have a restricted set of fixed permissions allowing access to certain endpoints e.g. `GET /users/` or `POST /posts/`. The full set of endpoints that integrations can access are those listed as [endpoints](#endpoints) on this page.
 
-User permissions are dependent entirely on their role. You can find more details in the [team management guide](/faq/managing-your-team/). Authenticating as a user with the Owner or Admin role will give access to the full set of API endpoints. Many endpoints can be discovered by inspecting the requests made by Ghost Admin, the [endpoints](#endpoints) listed on this page are those stable enough to document. 
- 
+User permissions are dependent entirely on their role. You can find more details in the [team management guide](/faq/managing-your-team/). Authenticating as a user with the Owner or Admin role will give access to the full set of API endpoints. Many endpoints can be discovered by inspecting the requests made by Ghost Admin, the [endpoints](#endpoints) listed on this page are those stable enough to document.
+
 
 
 ### Token Authentication
@@ -140,7 +140,7 @@ The Admin API JavaScript client handles all the technical details of generating 
 
 If you're using a language other than JavaScript, or are not using our client library, you'll need to generate the tokens yourself. It is not safe to swap keys for tokens in the browser, or in any other insecure environment.
 
-There are a myriad of [libraries](https://jwt.io/#libraries) available for generating JWTs in different environments. 
+There are a myriad of [libraries](https://jwt.io/#libraries) available for generating JWTs in different environments.
 
 JSON Web Tokens are made up of a header, a payload and a secret. The values needed for the header and payload are:
 
@@ -151,10 +151,10 @@ JSON Web Tokens are made up of a header, a payload and a secret. The values need
     "typ": "JWT"
 }
 ```
-  
+
 <br>
 
-  
+
 ```json:title=Payload:
 {
     // Timestamps are seconds sine the unix epoch, not milliseconds
@@ -166,7 +166,7 @@ JSON Web Tokens are made up of a header, a payload and a secret. The values need
 
 The libraries on https://jwt.io all work slightly differently, but all of them allow you to specify the above required values, including setting the signing algorithm to the required HS-256. Where possible, the API will provide specific error messages when required values are missing or incorrect.
 
-Regardless of language, you'll need to: 
+Regardless of language, you'll need to:
 
 1. Split the API key by the `:` into an `id` and a `secret`
 2. Decode the hexadecimal secret into the original binary byte array
@@ -221,14 +221,14 @@ set-cookie: ghost-admin-api-session={session token}; Path=/ghost; Expires=Mon, 2
 
 The provided session cookie should be provided with every subsequent API request:
 
-- When making the request from a browser using the `fetch` api,  pass `credentials: 'include'` to ensure cookies are sent. 
+- When making the request from a browser using the `fetch` api,  pass `credentials: 'include'` to ensure cookies are sent.
 - When using XHR you should set the `withCredentials` property of the xhr to `true`
 - When using cURL you can use the `--cookie` and `--cookie-jar` options to store and send cookies from a text file.
 
 ###### CSRF Protection
 
-Session-based requests must also include either an Origin (preferred) or a Referer header. The value of these headers is checked against the original session creation requests, in order to prevent Cross-Site Request Forgery (CSRF) in a browser environment. 
-In a browser environment, these headers are handled automatically. For server-side or native apps, the Origin header should be sent with an identifying URL as the value. 
+Session-based requests must also include either an Origin (preferred) or a Referer header. The value of these headers is checked against the original session creation requests, in order to prevent Cross-Site Request Forgery (CSRF) in a browser environment.
+In a browser environment, these headers are handled automatically. For server-side or native apps, the Origin header should be sent with an identifying URL as the value.
 
 #### Session-based Examples
 
@@ -243,7 +243,7 @@ curl -b ghost-cookie.txt \
    -d '{"posts": [{"title": "Hello World"}]}' \
    -H "Content-Type: application/json" \
    -H "Origin: https://myappsite.com" \
-   https://demo.ghost.io/ghost/api/v2/admin/posts/   
+   https://demo.ghost.io/ghost/api/v2/admin/posts/
 ```
 
 
@@ -309,7 +309,7 @@ These are the endpoints & methods currently available to integrations. More endp
 
 ## Posts
 
-Posts are the [primary resource](/concepts/posts/) in a Ghost site, providing means for publishing, managing and displaying content. 
+Posts are the [primary resource](/concepts/posts/) in a Ghost site, providing means for publishing, managing and displaying content.
 At the heart of every post is a mobiledoc field, containing a standardised JSON-based representation of your content, which can be rendered in multiple formats.
 
 
@@ -402,7 +402,7 @@ Long form requires an object with at least one identifying key-value pair:
     "posts": [{
         "title": "My test post",
         "tags": [{"name": "my tag", "description": "a very useful tag"}, {"name": "#hidden"}],
-        "authors": [{"id": "5c739b7c8a59a6c8ddc164a1"}, {"id": "5c739b7c8a59a6c8ddc162c5"}, {"id": "5c739b7c8a59a6c8ddc167d9"}]        
+        "authors": [{"id": "5c739b7c8a59a6c8ddc164a1"}, {"id": "5c739b7c8a59a6c8ddc162c5"}, {"id": "5c739b7c8a59a6c8ddc167d9"}]
     }]
 }
 ```
@@ -466,21 +466,21 @@ POST /admin/images/upload/
 
 ### The Image Object
 
-Images can be uploaded to, and fetched from storage. 
+Images can be uploaded to, and fetched from storage.
 When an image is uploaded, the response is an image object that contains the new URL for the image - the location from which the image can be fetched.
 
-`url`: _URI_  
-The newly created URL for the image. 
+`url`: _URI_
+The newly created URL for the image.
 
-`ref`: _String (optional)_  
+`ref`: _String (optional)_
 The reference for the image, if one was provided with the upload.
 
 ```json:title=POST /admin/images/upload/
-{ 
-    images: [{ 
-      url: "https://demo.ghost.io/content/images/2019/02/ghost-logo.png", 
-      ref: "ghost-logo.png"  
-    }] 
+{
+    images: [{
+      url: "https://demo.ghost.io/content/images/2019/02/ghost-logo.png",
+      ref: "ghost-logo.png"
+    }]
 }
 ```
 
@@ -488,13 +488,13 @@ The reference for the image, if one was provided with the upload.
 
 To upload an image, send a multipart formdata request by providing the `'Content-Type': 'multipart/form-data;'` header, along with the following fields encoded as [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData):
 
-`file`: _[Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) or [File](https://developer.mozilla.org/en-US/docs/Web/API/File)_  
+`file`: _[Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob) or [File](https://developer.mozilla.org/en-US/docs/Web/API/File)_
 The image data that you want to upload.
 
-`purpose`: _String (default: `image`)_  
+`purpose`: _String (default: `image`)_
 Intended use for the image, changes the validations performed. Can be one of `image` , `profile_image` or `icon`.  The supported formats for `image` and `profile_image` are JPEG, GIF, PNG and SVG. Supported formats for `icon` are ICO and PNG. `profile_image` must be square.
 
-`ref`: _String (optional)_      
+`ref`: _String (optional)_
 A reference or identifier for the image, e.g. the original filename and path. Will be returned as-is in the API response, making it useful for finding & replacing local image paths after uploads.
 
 ```bash
@@ -504,7 +504,7 @@ curl -X POST -F 'file=@/path/to/images/my-image.jpg' -F 'ref=path/to/images/my-i
 
 ## Site
 
-Site is a special unauthenticated, read-only endpoint for retrieving basic information about a site. 
+Site is a special unauthenticated, read-only endpoint for retrieving basic information about a site.
 This information is useful for integrations and clients that need to show some details of a site before providing authentication.
 
 ```JavaScript
@@ -514,17 +514,17 @@ GET /admin/site/
 
 The site endpoint returns a single object, rather than an array.
 
-`title`: _String_  
+`title`: _String_
 The title of the site, same as the title returned from the `settings` endpoint.
 
-`url`: _URI_  
+`url`: _URI_
 The frontend URL for the site, which can be different to the admin / api URL. This comes from the configuration JSON file.
 
-`version`: _Semver String (major.minor)_  
+`version`: _Semver String (major.minor)_
 The current version of the Ghost site. Use this to check the minimum version is high enough for compatibility with integrations.
 
 
-```GET json:title=/admin/site/
+```json:title=/admin/site/
 {
     "site": {
         "title": "Ghost",
@@ -537,6 +537,6 @@ The current version of the Ghost site. Use this to check the minimum version is 
 
 ## Versioning
 
-The v2 Admin API introduced several **stable** endpoints as of **Ghost 2.16.0**. 
+The v2 Admin API introduced several **stable** endpoints as of **Ghost 2.16.0**.
 See the [endpoints table](#endpoints) for details of which endpoints are considered stable.
 See the [stability index](/faq/api-versioning/) for full details of the API versions.
