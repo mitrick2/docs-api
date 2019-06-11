@@ -41,7 +41,7 @@ To reference a working example of a `package.json` file, review the [Casper file
     "config": {
         "posts_per_page": 10,
         "image_sizes": {}
-    },
+    }
 }
 ```
 
